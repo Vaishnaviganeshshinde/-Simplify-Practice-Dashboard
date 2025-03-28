@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplify Practice Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-navbar {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center; /* Align items vertically in the center */
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .top-navbar h1 {
+            margin: 0 10px; /* Add margin for spacing, adjust as needed */
+            font-size: 1.5em;
+            color: #333;
+            flex-grow: 1; /* Allow the heading to grow and take available space */
+        }
+
+        .top-navbar img {
+            height: 30px; /* Adjust image height as needed */
+            margin: 5px; /* Add margin around images */
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Push user profile to the right */
+        }
+
+        .user-profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sidebar {
+            width: 205px;
+            background-color: #fff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 50px;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content {
+            margin-left: 230px;
+            padding: 20px;
+            width: calc(100% - 270px);
+            margin-top: -21px;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-header a {
+            text-decoration: none;
+            color: blue;
+            font-size: 12px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        .table th {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+
+        .status-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .status-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .assignment-header, .assignment {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .assignment {
+            font-weight: normal;
+            border-bottom: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .top-navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .top-navbar h1 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+		.moduleTxtCol {
+    width: 50%;
+    font-size: 18px;
+    color: #0369A1;
+}
+    </style>
+</head>
+<body>
+      <div class="top-navbar">
+	<div style="    width: 17%;">
+	<img src="c:\Users\1tin\Desktop\New folder\Group 1000005761 (1).png" alt="User Profile">
+        <img src="c:\Users\1tin\Desktop\New folder\Simplify Practise 1.png" alt="User Profile"></div>
+        
+        <div class="moduleTxtCol">Simplify Practice</div>
+        <div class="user-profile">
+            <img src="c:\Users\1tin\Desktop\New folder\Frame 1000005762.png" alt="User Profile">
+            <img src="c:\Users\1tin\Desktop\New folder\Frame 1000005763.png" alt="User Profile">
+            <span>Kajal Singania</span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">PM</a>
+        <a href="#">CRM</a>
+    </div>
+    <div class="content">
+        <div class="dashboard-container">
+  <div class="card">
+    <div class="card-header">
+        <span>Activity Status (74)</span>
+        <a href="#">View all</a>
+    </div>
+    <div class="activity-list">
+       <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 38 38" fill="none">
+                    <circle cx="19" cy="19" r="19" fill="#D8EEFF"/>
+                    <path d="M19 28C18.45 28 17.9792 27.8042 17.5875 27.4125C17.1958 27.0208 17 26.55 17 26C17 25.45 17.1958 24.9792 17.5875 24.5875C17.9792 24.1958 18.45 24 19 24C19.55 24 20.0208 24.1958 20.4125 24.5875C20.8042 24.9792 21 25.45 21 26C21 26.55 20.8042 27.0208 20.4125 27.4125C20.0208 27.8042 19.55 28 19 28ZM17 22V10H21V22H17Z" fill="#064F86"/>
+                </svg>
+                <label style="margin-left: 8px;">Overdue</label>
+            </div>
+            <span>25</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 38 38" fill="none">
+                    <circle cx="19" cy="19" r="19" fill="#D8EEFF"/>
+                    <path d="M16 23.5C15.3 23.5 14.7083 23.2583 14.225 22.775C13.7417 22.2917 13.5 21.7 13.5 21C13.5 20.3 13.7417 19.7083 14.225 19.225C14.7083 18.7417 15.3 18.5 16 18.5C16.7 18.5 17.2917 18.7417 17.775 19.225C18.2583 19.7083 18.5 20.3 18.5 21C18.5 21.7 18.2583 22.2917 17.775 22.775C17.2917 23.2583 16.7 23.5 16 23.5ZM12 29C11.45 29 10.9792 28.8042 10.5875 28.4125C10.1958 28.0208 10 27.55 10 27V13C10 12.45 10.1958 11.9792 10.5875 11.5875C10.9792 11.1958 11.45 11 12 11H13V9H15V11H23V9H25V11H26C26.55 11 27.0208 11.1958 27.4125 11.5875C27.8042 11.9792 28 12.45 28 13V27C28 27.55 27.8042 28.0208 27.4125 28.4125C27.0208 28.8042 26.55 29 26 29H12ZM12 27H26V17H12V27ZM12 15H26V13H12V15Z" fill="#064F86"/>
+                </svg>
+                <label style="margin-left: 8px;">Today</label>
+            </div>
+            <span>02</span>
+        </div>
+        <div class="activity-item">
+             <div style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 38 38" fill="none">
+<circle cx="19" cy="19" r="19" fill="#D8EEFF"/>
+<path d="M19 24C19.2833 24 19.5208 23.9042 19.7125 23.7125C19.9042 23.5208 20 23.2833 20 23C20 22.7167 19.9042 22.4792 19.7125 22.2875C19.5208 22.0958 19.2833 22 19 22C18.7167 22 18.4792 22.0958 18.2875 22.2875C18.0958 22.4792 18 22.7167 18 23C18 23.2833 18.0958 23.5208 18.2875 23.7125C18.4792 23.9042 18.7167 24 19 24ZM19 20C19.2833 20 19.5208 19.9042 19.7125 19.7125C19.9042 19.5208 20 19.2833 20 19C20 18.7167 19.9042 18.4792 19.7125 18.2875C19.5208 18.0958 19.2833 18 19 18C18.7167 18 18.4792 18.0958 18.2875 18.2875C18.0958 18.4792 18 18.7167 18 19C18 19.2833 18.0958 19.5208 18.2875 19.7125C18.4792 19.9042 18.7167 20 19 20ZM19 16C19.2833 16 19.5208 15.9042 19.7125 15.7125C19.9042 15.5208 20 15.2833 20 15C20 14.7167 19.9042 14.4792 19.7125 14.2875C19.5208 14.0958 19.2833 14 19 14C18.7167 14 18.4792 14.0958 18.2875 14.2875C18.0958 14.4792 18 14.7167 18 15C18 15.2833 18.0958 15.5208 18.2875 15.7125C18.4792 15.9042 18.7167 16 19 16ZM27 27H11C10.45 27 9.97917 26.8042 9.5875 26.4125C9.19583 26.0208 9 25.55 9 25V21C9.55 21 10.0208 20.8042 10.4125 20.4125C10.8042 20.0208 11 19.55 11 19C11 18.45 10.8042 17.9792 10.4125 17.5875C10.0208 17.1958 9.55 17 9 17V13C9 12.45 9.19583 11.9792 9.5875 11.5875C9.97917 11.1958 10.45 11 11 11H27C27.55 11 28.0208 11.1958 28.4125 11.5875C28.8042 11.9792 29 12.45 29 13V17C28.45 17 27.9792 17.1958 27.5875 17.5875C27.1958 17.9792 27 18.45 27 19C27 19.55 27.1958 20.0208 27.5875 20.4125C27.9792 20.8042 28.45 21 29 21V25C29 25.55 28.8042 26.0208 28.4125 26.4125C28.0208 26.8042 27.55 27 27 27ZM27 25V22.45C26.3833 22.0833 25.8958 21.5958 25.5375 20.9875C25.1792 20.3792 25 19.7167 25 19C25 18.2833 25.1792 17.6208 25.5375 17.0125C25.8958 16.4042 26.3833 15.9167 27 15.55V13H11V15.55C11.6167 15.9167 12.1042 16.4042 12.4625 17.0125C12.8208 17.6208 13 18.2833 13 19C13 19.7167 12.8208 20.3792 12.4625 20.9875C12.1042 21.5958 11.6167 22.0833 11 22.45V25H27Z" fill="#064F86"/>
+</svg>
+                <label style="margin-left: 8px;">Ticket</label>
+            </div>
+            <span>20</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 38 38" fill="none">
+<circle cx="19" cy="19" r="19" fill="#D8EEFF"/>
+<path d="M19 28C18.45 28 17.9792 27.8042 17.5875 27.4125C17.1958 27.0208 17 26.55 17 26C17 25.45 17.1958 24.9792 17.5875 24.5875C17.9792 24.1958 18.45 24 19 24C19.55 24 20.0208 24.1958 20.4125 24.5875C20.8042 24.9792 21 25.45 21 26C21 26.55 20.8042 27.0208 20.4125 27.4125C20.0208 27.8042 19.55 28 19 28ZM17 22V10H21V22H17Z" fill="#064F86"/>
+</svg>
+                <label style="margin-left: 8px;">Critical</label>
+            </div>
+            <span>15</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 38 38" fill="none">
+                    <circle cx="19" cy="19" r="19" fill="#D8EEFF"/>
+                    <path d="M24.55 19L21 15.45L22.425 14.05L24.55 16.175L28.8 11.925L30.2 13.35L24.55 19ZM16 19C14.9 19 13.9583 18.6083 13.175 17.825C12.3917 17.0417 12 16.1 12 15C12 13.9 12.3917 12.9583 13.175 12.175C13.9583 11.3917 14.9 11 16 11C17.1 11 18.0417 11.3917 18.825 12.175C19.6083 12.9583 20 13.9 20 15C20 16.1 19.6083 17.0417 18.825 17.825C18.0417 18.6083 17.1 19 16 19ZM8 27V24.2C8 23.6333 8.14583 23.1125 8.4375 22.6375C8.72917 22.1625 9.11667 21.8 9.6 21.55C10.6333 21.0333 11.6833 20.6458 12.75 20.3875C13.8167 20.1292 14.9 20 16 20C17.1 20 18.1833 20.1292 19.25 20.3875C20.3167 20.6458 21.3667 21.0333 22.4 21.55C22.8833 21.8 23.2708 22.1625 23.5625 22.6375C23.8542 23.1125 24 23.6333 24 24.2V27H8Z" fill="#064F86"/>
+                </svg>
+                <label style="margin-left: 8px;">Assigned by Me</label>
+            </div>
+			<span>12</span>
+        </div>
+    </div>
+</div>
+
+    <div class="card" >
+    <div class="card-header">
+        <span>Assignment (03)</span>
+        <a href="#">View all</a>
+    </div>
+     <div class="assignments">      
+		 <div class="activity-item" style="background-color: #ECF7FF;">
+            <div style="display: flex; align-items: center;">                
+                <label style="margin-left: 8px;">Projects</label>
+            </div>
+            <span style="margin-left: 190px;">Assigned</span>
+            <span>Overdue</span>
+        </div>
+         <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">EkatmERP - Production support</label>
+            </div>
+            <span>449</span>
+            <span>100%</span>
+        </div>
+         <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">EkatmERP - Production support</label>
+            </div>
+            <span>449</span>
+            <span>100%</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">EkatmERP - Production support</label>
+            </div>
+            <span>449</span>
+            <span>100%</span>
+        </div>
+    </div>
+</div>
+
+           
+        </div>
+		<div class="dashboard-container">
+         
+
+                  <div class="card" >
+    <div class="card-header">
+        <span>Report (03)</span>
+        <a href="#">View all</a>
+    </div>
+   <div class="assignments">      
+		 <div class="activity-item" style="background-color: #ECF7FF;">
+            <div style="display: flex; align-items: center;">                
+                <label style="margin-left: 8px;">Projects</label>
+            </div>
+            <span style="margin-left: 190px;">Assigned</span>
+            <span>Overdue</span>
+        </div>
+       
+         <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Frame.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">Amay Gurjar</label>
+            </div>
+            <span style="margin-left: 140px;">449</span>
+            <span>100%</span>
+        </div>
+		<div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Frame.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">Amay Gurjar</label>
+            </div>
+            <span style="margin-left: 140px;">449</span>
+            <span>100%</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+<img src="c:\Users\1tin\Desktop\New folder\Ellipse 1214.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">                
+                <label style="margin-left: 8px;">Amay Gurjar</label>
+            </div>
+            <span style="margin-left: 140px;">449</span>
+            <span>100%</span>
+        </div>
+    </div>
+</div>
+        
+		           <div class="card" >
+    <div class="card-header">
+        <span>Clients (03)</span>
+        <a href="#">View all</a>
+    </div>
+    <div class="assignments">      
+		 <div class="activity-item" style="background-color: #ECF7FF;">
+            <div style="display: flex; align-items: center;">                
+                <label style="margin-left: 8px;">Projects</label>
+            </div>
+            <span style="margin-left: 190px;">Assigned</span>
+            <span>Overdue</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">Santhosh Harish & Co, C</label>
+            </div>
+            <span style="margin-left: 42px;">449</span>
+            <span>100%</span>
+        </div>
+         <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">EkatmERP - Production support</label>
+            </div>
+            <span>449</span>
+            <span>100%</span>
+        </div>
+        <div class="activity-item">
+            <div style="display: flex; align-items: center;">
+                <img src="c:\Users\1tin\Desktop\New folder\Group 1000005736.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">
+                <label style="margin-left: 8px;">EkatmERP - Production support</label>
+            </div>
+            <span>449</span>
+            <span>100%</span>
+        </div>
+    </div>
+</div>
+		</div>
+    
+	<div class="dashboard-container">
+          <div class="card">
+                <div class="card-header">
+                    <span>Due Date Information (03)</span>
+                    <a href="#">View all</a>
+                </div>
+                <table class="table">
+                  
+                    <tr>
+                        <td><img src="c:\Users\1tin\Desktop\New folder\Frame1.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">Form MSME</td>                        
+                    </tr>
+					<tr>                        
+                        <td>20/03/2024 to 20/03/2024</td>
+                    </tr>
+                    <tr>
+                        <td><img src="c:\Users\1tin\Desktop\New folder\Frame1.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">Form MSME</td>                        
+                    </tr>
+					<tr>                        
+                        <td>20/03/2024 to 20/03/2024</td>
+                    </tr>
+					<tr>
+                        <td><img src="c:\Users\1tin\Desktop\New folder\Frame1.png" alt="Project Image" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px;">Form MSME</td>                        
+                    </tr>
+					<tr>                        
+                        <td>20/03/2024 to 20/03/2024</td>
+                    </tr>
+                </table>
+            </div>
+
+                  <div class="card">
+                <div class="card-header">
+                    <span>Meetings (0)</span>
+                    <a href="#">View all</a>
+                </div>
+                <div class="no-data">
+                    <img src="c:\Users\1tin\Desktop\New folder\wrong-database 1.png" alt="No Data" width="100">
+                </div>
+            </div>
+         <div class="card">
+                <div class="card-header">
+                    <span>Feedback (0)</span>
+                    <a href="#">View all</a>
+                </div>
+                <div class="no-data">
+                    <img src="c:\Users\1tin\Desktop\New folder\wrong-database 1.png" alt="No Data" width="100">
+                </div>
+            </div>
+		</div>
+	
+	</div>
+</body>
+</html>
